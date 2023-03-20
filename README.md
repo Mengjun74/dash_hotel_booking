@@ -20,7 +20,7 @@ The dashboard also serves as a valuable tool for hotel managers and marketers to
 
 ## Use the App
 
-You can access the deployed app on [\]()!
+You can access the deployed app on [here](https://dash-hotel-booking.onrender.com)!
 
 ## About the Data
 
