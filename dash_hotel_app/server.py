@@ -44,7 +44,7 @@ app.layout = html.Div([
 
     html.Div([
         dcc.Graph(id='booking_trends'),
-        dcc.Graph(id='cancellation_rates')
+        #dcc.Graph(id='cancellation_rates')
     ], style={'width': '50%', 'display': 'inline-block', 'vertical-align': 'top'}),
 
     html.Div([
@@ -53,8 +53,8 @@ app.layout = html.Div([
     ], style={'width': '50%', 'display': 'inline-block', 'vertical-align': 'top'}),
 
     html.Div([
-        dcc.Graph(id='booked_room_types'),
-        dcc.Graph(id='peak_booking_periods')
+        dcc.Graph(id='booked_room_types')
+        #dcc.Graph(id='peak_booking_periods')
     ], style={'width': '50%', 'display': 'inline-block', 'vertical-align': 'top'}),
 
     html.Div([
@@ -64,11 +64,11 @@ app.layout = html.Div([
 
 @app.callback(
     [Output('booking_trends', 'figure'),
-     Output('cancellation_rates', 'figure'),
+     #Output('cancellation_rates', 'figure'),
      Output('average_booking_value', 'figure'),
      Output('popular_countries', 'figure'),
-     Output('booked_room_types', 'figure'),
-     Output('peak_booking_periods', 'figure')],
+     Output('booked_room_types', 'figure')],
+     #Output('peak_booking_periods', 'figure')],
     [Input('date_range', 'start_date'),
      Input('date_range', 'end_date'),
      Input('hotel_type', 'value'),
@@ -84,13 +84,13 @@ def update_graphs(start_date, end_date, hotel_type, country):
 
     # Create the figures for each graph
     booking_trends_fig = px.histogram(filtered_df, x='arrival_date', y='adults', title='Booking Trends')
-    cancellation_rates_fig = px.bar(filtered_df, x='hotel', y='is_canceled', title='Cancellation Rates', color_discrete_sequence=['blue'])
+    #cancellation_rates_fig = px.bar(filtered_df, x='hotel', y='is_canceled', title='Cancellation Rates', color_discrete_sequence=['blue'])
     average_booking_value_fig = px.density_heatmap(filtered_df, x='arrival_date_month', y='country', z='adr', title='Average Booking Value')
     popular_countries_fig = px.choropleth(filtered_df, locations='country', locationmode='ISO-3', color='adults', title='Most Popular Countries')
     booked_room_types_fig = px.pie(filtered_df, names='reserved_room_type', title='Frequently Booked Room Types')
-    peak_booking_periods_fig = px.bar(filtered_df, x='arrival_date_month', y='adults', title='Peak Booking Periods')
+    #peak_booking_periods_fig = px.bar(filtered_df, x='arrival_date_month', y='adults', title='Peak Booking Periods')
 
-    return booking_trends_fig, cancellation_rates_fig, average_booking_value_fig, popular_countries_fig, booked_room_types_fig, peak_booking_periods_fig
+    return booking_trends_fig, average_booking_value_fig, popular_countries_fig, booked_room_types_fig#, peak_booking_periods_fig
 
 
 
