@@ -1,4 +1,4 @@
-# Proposal for the Shiny Hotel Booking Dashboard
+# Proposal for the Dash Hotel Booking Dashboard
 
 ## Motivation and Purpose
 
