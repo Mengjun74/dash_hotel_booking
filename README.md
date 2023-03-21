@@ -79,3 +79,7 @@ Python app.py
 
 ## Contributors
 Team members: Mengjun Chen
+
+<a href="https://github.com/Mengjun74/dash_hotel_booking/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Mengjun74/dash_hotel_booking&max=1000" />
+</a>
